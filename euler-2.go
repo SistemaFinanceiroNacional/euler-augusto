@@ -1,10 +1,12 @@
 package main
 
+import "fmt"
+
 func Euler2() {
-	_ = Fib(10)
+	SumEvenValuedFibonacciTerms(4000000)
 }
 
-func Fib(n int) int {
+func FibRecursion(n int) int {
 	if n == 0 {
 		return 1
 	}
@@ -13,7 +15,21 @@ func Fib(n int) int {
 		return 2
 	}
 
-	return Fib(n-1) + Fib(n-2)
+	return FibRecursion(n-1) + FibRecursion(n-2)
 }
 
-// Escrever uma função que recebe um número e retorna a soma dos números fibonacci pares cujo o valor é menor que o número dado.
+func SumEvenValuedFibonacciTerms(n int) {
+	var sumResult, index int
+
+	for {
+		fibResult := FibRecursion(index)
+		index++
+		if fibResult%2 == 0 {
+			sumResult += fibResult
+		}
+		if fibResult >= n {
+			break
+		}
+	}
+	fmt.Println("Euler 2 =", sumResult)
+}
