@@ -7,16 +7,16 @@ import (
 )
 
 func TestFirstIndex(t *testing.T) {
-	res := Fib(0)
+	res := FibRecursion(0)
 	assert.Equal(t, 1, res)
 }
 
 func TestSecondIndex(t *testing.T) {
-	res := Fib(1)
+	res := FibRecursion(1)
 	assert.Equal(t, 2, res)
 }
 
 func TestLastIndex(t *testing.T) {
-	res := Fib(9)
+	res := FibRecursion(9)
 	assert.Equal(t, 89, res)
 }
